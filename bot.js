@@ -39,6 +39,7 @@ bot.on("message", async (msg) => {
       }
     });
   }
+  //passing i as a callback function to f.
   f(username, i);
 });
 
