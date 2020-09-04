@@ -43,4 +43,38 @@ bot.on("message", async (msg) => {
   f(username, i);
 });
 
+/*Puppeteer equivalent Code for SVECW*/
+
+const puppeteer = require("puppeteer");
+
+(async () => {
+  const browser = await puppeteer.launch({ headless: false });
+  const page = await browser.newPage();
+  await page.setViewport({
+    width: 1440,
+    height: 900,
+  });
+  const navigationPromise = page.waitForNavigation({
+    waitUntil: "domcontentloaded",
+  });
+  await page.goto("http://svecwecap.in/");
+  await page.click("#txtId2");
+  await page.keyboard.type("18b01a0452");
+  await page.click("#txtPwd2");
+  await page.keyboard.type("webcap");
+  await page.click("#imgBtn2");
+  await navigationPromise;
+  await page.waitFor(2000);
+  await page.goto(
+    "http://svecwecap.in/Academics/StudentAttendance.aspx?showtype=SA"
+  );
+  await page.waitFor(5000);
+  await page.waitForSelector("#radTillNow");
+  await page.click("#radTillNow");
+  await page.waitForSelector("#btnShow");
+  await page.click("#btnShow");
+  await page.waitFor(5000);
+  await page.screenshot({ path: "ecap3.png", fullPage: true });
+  await browser.close();
+})();
 
