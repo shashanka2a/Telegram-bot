@@ -47,6 +47,9 @@ bot.on("message", async (msg) => {
 
 const puppeteer = require("puppeteer");
 
+//const username = "18b01a0452";
+const password = "webcap";
+
 (async () => {
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
@@ -59,7 +62,7 @@ const puppeteer = require("puppeteer");
   });
   await page.goto("http://svecwecap.in/");
   await page.click("#txtId2");
-  await page.keyboard.type("18b01a0452");
+  await page.keyboard.type(username);
   await page.click("#txtPwd2");
   await page.keyboard.type("webcap");
   await page.click("#imgBtn2");
