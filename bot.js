@@ -77,7 +77,7 @@ const password = "webcap";
   await page.waitForSelector("#btnShow");
   await page.click("#btnShow");
   await page.waitFor(5000);
-  await page.screenshot({ path: "ecap3.png", fullPage: true });
+  await page.screenshot({ path: "ecap.png", fullPage: true });
   await browser.close();
 })();
 
